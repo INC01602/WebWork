@@ -32,5 +32,5 @@
 3. Timer object and Methods:
     ```Javascript
     var endTimer = new Date().getTime();
-	  var reactionTime = endTimer - timer;
+    var reactionTime = endTimer - timer;
     ```
