@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> Reaction Test </title>
+<style>
+	.gamespace {
+		background-color: #d8ddfb;
+		border: solid red thin;
+		width: 1000px;
+		height: 500px;
+	}
+
+	.circle {
+		position: relative;
+		top:10px;
+		left: 10px;
+		display: inline-block;
+		background-color: red;
+		width: 100px;
+		height: 100px;
+		border-radius: 50%;
+	}
+
+	.square {
+		position: relative;
+		top:10px;
+		left: 10px;
+		display: inline-block;
+		background-color: red;
+		width: 100px;
+		height: 100px;
+	}
+
+	.triangle {
+		display: inline-block;
+		position: relative;
+		top:10px;
+		left: 10px;
+		width: 0; 
+  		height: 0; 
+  		border-left: 50px solid transparent;
+  		border-right: 50px solid transparent;
+  		border-bottom: 100px solid red;
+	}
+</style>
+<script>
+	var shape = ["circle", "square", "triangle"];
+	let positionTop, positionLeft;
+
+function start() {
+	setTimeout(document.getElementById("object").className = "circle", 500);
+	timer = new Date().getTime();
+}
+
+function stop() {
+	setTimeout(document.getElementById("object").className = "", 500);
+	document.getElementById("reactime").innerHTML = "-- s";
+}
+
+function getRandomColor() {
+	var letters = '0123456789ABCDEF';
+	var color = '#';
+	for (var i = 0; i < 6; i++) {
+		color += letters[Math.floor(Math.random() * 16)];
+	}
+	return color;
+}
+
+function randomize() {
+	var objShape = Math.floor(Math.random()*3);
+	var objColour = getRandomColor();
+	var objPosTop = Math.floor(Math.random()*400);
+	var objPosLeft = Math.floor(Math.random()*900);
+	
+	document.getElementById("object").className = shape[objShape];
+	document.getElementById("object").style.top = objPosTop+"px";
+	document.getElementById("object").style.left = objPosLeft+"px";
+
+	if (objShape != 2) {
+		document.getElementById("object").style.backgroundColor = objColour;}
+	else {
+		document.getElementById("object").style.borderBottomColor = objColour;
+		document.getElementById("object").style.backgroundColor = "transparent";}
+}
+
+function nextObj() {
+	var endTimer = new Date().getTime();
+	var reactionTime = endTimer - timer;
+	randomize();
+	timer = new Date().getTime();
+	document.getElementById("reactime").innerHTML = (reactionTime/1000) + "s";
+}
+</script>
+</head>
+<body>
+<h2> Test Your Reaction Time </h2>
+<p> Click on the shapes as they appear. Click as fast as you can!! </p>
+<p><b> Your Reaction Time is: <span id="reactime"> -- s </span> <b> </p>
+<button onclick="start()" > Start </button>
+<button onclick="stop()" > Stop </button>
+<div class="gamespace">
+	<div id="object" onclick="nextObj()"> </div>
+</div>
+</body>
+</html>
