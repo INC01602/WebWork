@@ -1,6 +1,8 @@
 ## Simple JS based calculator
 
-#### * New things here:
+![screenshot](instance.png)
+
+## New things here:
 
 1. Use button and input or any tags as per the functionality.
 2. While starting a project reset **box-sizing, margins and padding** using:
