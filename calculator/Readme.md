@@ -14,9 +14,9 @@
       ```
 3. Interesting article on aligning [link](https://www.freecodecamp.org/news/css-vertical-align-how-to-center-a-div-text-or-an-image-example-code/amp/)
 4. **Difference between querySelector(), querySelectorAll(), getElementById(), getElementsByClass()** : [Entire Article](https://unicorntears.dev/posts/queryselectorall-vs-getelementsbyclassname/#:~:text=querySelectorAll()%20retrieves%20a%20list,live%20HTML%20collection%20of%20elements.)
-      - querySelectorAll() retrieves a list of elements from the document based on your given selector, and returns a static NodeList object.
-      - getElementsByClassName() retrieves a list of elements from the document based on an element’s class name, and returns a live HTML collection of elements.
-      - THe static NodeList dosen't change even if the HTML elements change after the querySelectorAll() is activated.
+      - `querySelectorAll()` retrieves a list of elements from the document based on your given selector, and returns a static NodeList object.
+      - `getElementsByClassName()` retrieves a list of elements from the document based on an element’s class name, and returns a live HTML collection of elements.
+      - THe static NodeList dosen't change even if the HTML elements change after the `querySelectorAll()` is activated.
 
 5. Use of 'of' keyword in for loop - `for (items of NodeArray) {}`
 6. Adding Event Listeners, .EventListeners('click', function() {}). `function(){}` is replaced as `()=>` `E.g (e)=> reads like (e) is function of`  
