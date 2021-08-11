@@ -5,9 +5,9 @@
 ## New things here:
 
 1. Making Shapes out of CSS
-    -	Square/Rectangle: Just a div of specified `width` and `height`.
-    - Circle: Change the `radius` property to `50%`.
-    - Triangle: 
+    - **Square/Rectangle:** Just a div of specified `width` and `height`.
+    - **Circle:** Change the `radius` property to `50%`.
+    - **Triangle:** 
         1. Change the `width` and `height` to 0px. 
         2. Change the `border` to `red thick solid`, change the other two adjoining borders to `transparent` and same size.
         3. ``` CSS
