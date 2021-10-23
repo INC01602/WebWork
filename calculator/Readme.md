@@ -23,3 +23,7 @@
 7. **e** or **event** is an object containing information about the action that just happened. The event would have info such as the coordinates of the click (event.screenX for example), the element on which you clicked (event.target), and much more.
 8.  The way to bind the handler to the element is by doing `element.addEventListener(eventName, handler)`.
 9.  W3Schools Articles: [Event and Event Objects](http://www-db.deis.unibo.it/courses/TW/DOCS/w3schools/jsref/dom_obj_event.asp.html)
+
+## Future Scope:
+1. Complex Mathematical Calculations,
+2. Expand Idea of Dr. Leonard Hofstaeder of Mathematical Calculator
