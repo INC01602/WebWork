@@ -36,5 +36,5 @@ Basic Form validation for login screen or registration screen.
     Regex for email id :
     http://zparacha.com/validate-email-address-using-javascript-regular-expression 
 
-5. jQuery Selector using attribute:
+5. jQuery Selector using attribute
     -`$("input[type='text']").val('');`
