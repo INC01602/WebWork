@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery-Ui Introduction</title>
+
+    <link href="jquery-ui.css" rel="stylesheet">
+
+    <script type="text/javascript" src="jquery-ui/external/jquery/jquery.js"></script>
+    <script type="text/javascript" src="jquery-ui/jquery-ui.js"></script>
+
+    <style>
+      #dragVertical {
+        position: relative;
+        left: 0px;
+        top: 50px;
+      }
+
+      #dragHorizontal {
+        position: relative;
+        left: 300px;
+        top: 50px;
+      }
+
+      #dragWrapper {
+        position: relative;
+        top: 200px;
+        margin: 0px auto;
+        float: left;
+        width: 500px;
+        height: 300px;
+        border: 2px solid red;
+        border-radius: 6px;
+      }
+
+      #parentOfInbound {
+        border: 2px solid green;
+        border-radius: 6px;
+        width: 200px;
+        height: 100px;
+        margin: 0px auto;
+      }
+
+      #dragPage {
+        height: 100%;
+        width: 100%;
+      }
+    </style>
+</head>
+<body>
+    <div id="dragPage">
+        <p id="draggable">Drag me - No containment</p>
+    </div>
+      <span id="dragVertical">Drag Vertical</span>
+      <span id="dragHorizontal">Drag Horizontal</span>
+      <div id="dragWrapper">
+        <span id="dragInbound">Inbound Drag</span>
+        <div id="parentOfInbound">
+          <span id="parentBound">I am grounded by parent.</span>
+        </div>
+      </div>
+
+    <script>
+        $( function() {
+          $( "#draggable" ).draggable();
+          $( "#dragVertical" ).draggable({ axis: "y" });
+          $( "#dragHorizontal" ).draggable({ axis: "x" });
+
+          $( "#dragInbound" ).draggable({ containment: "#dragWrapper", scroll: false });
+          $( "#parentBound" ).draggable({ containment: "parent"});
+        } );
+    </script>
+</body>
+</html>
