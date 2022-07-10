@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Button Animation</title>
+    <style>
+        /* display:flex for enabling the justify and align property */
+        /* 100 vh for full screen body tag */
+        body {
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            display: flex;
+            background-color: #e9e9e9;
+        }
+
+        /* use border radius in pixels for crisp border radius */
+        .SubmitBtn {
+            display: block;
+            width: 9rem;
+            height: 3rem;
+            border-radius: 50px;
+            background-color: #6f009d;
+            border: 2px #6f009d solid;
+            font-size: 1.35rem;
+            color: #f3f3f3;
+        }
+
+        /* box-shadow: vertical-skew horizontal-skew blur-px color */
+        .SubmitBtn:active {
+            transition: 0.4s;
+            cursor: pointer;
+            background-color: #c234ff;
+            box-shadow: 0px 2px 2px #6f009d !important;
+            border: 2px #c234ff solid;
+        }
+
+        .SubmitBtn:hover {
+            transition: 0.4s;
+            cursor: pointer;
+            background-color: #c234ff;
+            box-shadow: 0px 6px 5px #6f009d;
+            border: 2px #c234ff solid;
+        }
+
+        /* animation: name duration(s) timing-function(linear,bezier) delay(s) iteration-count(num) direction fill-mode play-state; */
+        .SubmitBtn:focus {
+            background-color: #c234ff;
+            border: 2px #c234ff solid;
+            animation: submit 2s linear 0.5s;
+        }
+
+        @keyframes submit {
+            100% {
+                border-radius: 50%;
+                width: 3rem;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div>
+        <button class="SubmitBtn">Submit</button>
+    </div>
+</body>
+</html>

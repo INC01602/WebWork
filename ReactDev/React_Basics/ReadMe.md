@@ -50,3 +50,24 @@ B. components-creation
       - Slightly complex UI logic
       - Provide lifecycle Hooks
       - Hence Called Stateful/Smart/Container Components
+
+   - JSX (JS XML extension)
+
+      - Not necessary, but is simple to write and makes code manageable and readable.
+      - It is later converted to vanilla js understood by browsers
+      - some subtle differences are present in HTML and JSX
+
+   - Props
+      
+      - Properties/attributes passed to the components dynamically during dev phase
+      -  Mostly immutable by the childrens
+      - Accessed by - 
+         - `props` parameter passed to the functional components.
+         - `this.props` by the class components.
+         
+   - State
+
+      - State is like a variable that is managed within the function
+      - Accessed by - 
+         - `UseState Hook` parameter passed to the functional components.
+         - `this.props` by the class components.
