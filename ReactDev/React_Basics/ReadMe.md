@@ -1,4 +1,4 @@
-##React BoilerPlate
+## React BoilerPlate
 
 This directory will concern with storing all the basics for react. 
 
@@ -22,16 +22,12 @@ B. components-creation
 
       - export by name - Named Export
       - Default Export
-                                                   ______________
-                           properties (Props) --> | JS Func Comp | --> JSX
-                                                  |______________|
+         properties (Props) --> | JS Func Comp | --> JSX  
+                           
    - Class Components
-                                                   _____________
-                                                  |  ES6 Class  | 
-                           properties (Props) --> |  (internal  | --> JSX
-                                                  |    State)   |
-                                                  |_____________|
-
+         properties (Props) --> |  ES6 Class (internal State)  | --> JSX   
+         
+                                                  
       - extends the component class in React
       - needs to have a renderer {} method that will return either null or the required JSX
 
