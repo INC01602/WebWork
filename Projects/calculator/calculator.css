@@ -1,0 +1,86 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Georama', sans-serif;
+}
+
+.calculator-container {
+    width: 400px;
+    height: 615px;
+    margin: 50px auto;
+    background-color:#2d3844;
+    border-radius: 2%;
+}
+
+.display {
+    display: inline-block;
+    height: 130px;
+    margin: 10px 0px;
+}
+
+.upper-display {
+    box-sizing: border-box;
+    display: inline-block;
+    overflow-x: visible;
+    background-color: #2d3844;
+    border: none;
+    padding: 10px 12px 0px 12px;
+    width: 400px;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    text-align: end;
+}
+
+.lower-display {
+    box-sizing: border-box;
+    display: inline-block;
+    background-color: #2d3844;
+    border: none;
+    width: 400px;
+    padding: 0px 12px;
+    color: white;
+    font-size: 70px;
+    font-weight: bold;
+    text-align: end;
+}
+
+.button-grid {
+    display: inline-block;
+}
+
+.button-text {
+    display:flex;
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.button {
+    display: inline-flex;
+    width: 100%;
+    align-items:center;
+    justify-content:center;
+    width: 82px;
+    height: 80px;
+    background-color: #503cd2;
+    border-radius: 10%;
+    margin: 10px 0px 0px 12px;
+}
+
+.equal-button {
+    display: inline-flex;
+    width: 182px;
+    height: 80px;
+    background-color: #f43d1e;
+    border-radius: 10%;
+    margin: 10px 0px 0px 12px;
+}
+
+.button:active {
+    background-color: #2914b6;
+}
+
+.equal-button:active {
+    background-color: #c73117;
+}
