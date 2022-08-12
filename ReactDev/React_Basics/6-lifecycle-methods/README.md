@@ -5,9 +5,10 @@
 - These methods are usually used for the class components and are not availalbe for functional components. Hooks like `useEffects` are used in functional components to use lifecycle methods
 
 - Mainly the lifecycle methods are classified into four parts - 
-    - Mounting
+    - Mounting:
         When the instance of a component is being created or inserted into the DOM.
-        Methods : constructor, static getDerivedStateFromProps, render and componentDidMount
+        Methods : 
+        - constructor: Gets called when , static getDerivedStateFromProps, render and componentDidMount
 
     - Updating
         When the component is re-rendered as a change in `state` or `prop`
