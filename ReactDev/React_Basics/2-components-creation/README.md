@@ -1,70 +1,69 @@
-# Getting Started with Create React App
+## React BoilerPlate
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This directory will concern with storing all the basics for react. 
 
-## Available Scripts
+> Houn Jau De!! HHM!!
 
-In the project directory, you can run:
+A. boilerplate-from-npm
+   1. For creating the project using npm, Make sure you have npm installed
+   2. Follow either of the commands in the terminal - 
 
-### `npm start`
+      - `npx create-react-app <Project_Name (Dont use capital letters in naming)>`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+      - `npm install create-raect-app -g`
+      - `create-react-app <Project_Name (Dont use capital letters in naming)>`
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+    npx - is npm's project manager
 
-### `npm test`
+B. components-creation
+   
+   Project's all about components -
+   - Functional Components - just a JSX code that is returned by the function Eg. the greet component created
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+      - export by name - Named Export
+      - Default Export
+         properties (Props) --> | JS Func Comp | --> JSX  
+                           
+   - Class Components
+         properties (Props) --> |  ES6 Class (internal State)  | --> JSX   
+         
+                                                  
+      - extends the component class in React
+      - needs to have a renderer {} method that will return either null or the required JSX
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+   - Benefits of Functional Components:
+     
+      - Simple .js functions, Recommended to be used whenever possible
+      - 'this' keyword is not present in such components
+      - Solutions without state
+      - Hence called Stateless/Dumb/Presentational Components
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+   - Benefits of Class Components:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+      - More Feature Rich
+      - Maintains their own private data too -- Called State
+      - Slightly complex UI logic
+      - Provide lifecycle Hooks
+      - Hence Called Stateful/Smart/Container Components
 
-### `npm run eject`
+   - JSX (JS XML extension)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+      - Not necessary, but is simple to write and makes code manageable and readable.
+      - It is later converted to vanilla js understood by browsers
+      - some subtle differences are present in HTML and JSX
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+   - Props
+      
+      - Properties/attributes passed to the components dynamically during dev phase
+      -  Mostly immutable by the childrens
+      - Accessed by - 
+         - `props` parameter passed to the functional components.
+         - `this.props` by the class components.
+         
+   - State
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+      - State is like a variable that is managed within the function
+      - Accessed by - 
+         - `UseState Hook` parameter passed to the functional components.
+         - `this.props` by the class components.

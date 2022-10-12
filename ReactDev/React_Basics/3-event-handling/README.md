@@ -1,70 +1,84 @@
-# Getting Started with Create React App
+### Event Handling
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+There are events attached to various actions done by the user such as mousedown, mouseup, hover, click, etc. 
+Various actions can be performed based on these events
 
-## Available Scripts
+Events are to be added in camel case and the function name to be included in curly braces.
+`<button onClick={onBtnClick}> Functional Event Info </button>`
 
-In the project directory, you can run:
+For functional/class components - 
+Event handler functions can be directly added in the component itself. Handler Functions are same as js events.
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Event Binding
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Events need to be binded because of the `this` keyword, `this` keyword sometimes gets undefined or gets wrong scope due to functions.
 
-### `npm test`
+There are 4 main methods for binding - 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. directly using `bind` and bind handler to the renderer functions
 
-### `npm run build`
+`<button onClick={this.onBtnClick.bind(this)}> Functional Event Info </button>`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+This method may cause the component to rerender when data is is updated.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2. Using arrow function to attach event handler.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+`<button onClick={() => this.onBtnClick()}> Functional Event Info </button>`
 
-### `npm run eject`
+3. Most preferred for event binding
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+    ```
+        constructor (props) {
+            super (props) 
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+            this.state = {
+                message:'Hello User'
+            }
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+            this.onBtnClick = this.onBtnClick.bind(this);
+        }
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+    ```
 
-## Learn More
+4. Also, Preferred method for event binding - 
+Using arrow functions to create the event handler
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+    ```
+        onEventHandle = () => {
+                this.setState({
+                    message:"Event Handled!!"
+                }, () => {
+                    alert(this.state.message)
+                })
+            }
+    ```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+### Passing Methods as props
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- Method defined in the parent method is triggered by the child and some parameters are passed along with it.
+- Arrow function to pass arguments to the function i.e a parent method called in child.
 
-### Analyzing the Bundle Size
+    `<ChildComp greetHandler = {this.greetParent} >First Child</ChildComp>`
+    greetHandler is the method prop passed to the child from parent
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+    ```
+        constructor (props) {
+            super (props)
 
-### Making a Progressive Web App
+            this.state = {
+                message: 'Hello Parent, This is Me, '
+            }
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+            this.greetParent = this.greetParent.bind(this)
+        }
 
-### Advanced Configuration
+        greetParent (name) {
+            alert(`${this.state.message}` + name)    
+        }
+    ```
+    this.greetParent defined in the parent component and passed to child to trigger
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+    `<button onClick={()=>props.greetHandler(props.children)}> Greet Parent </button>`
 
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

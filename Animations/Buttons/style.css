@@ -1,0 +1,84 @@
+.buttonGrid {
+    display: flex;
+    flex-direction: row;
+    align-content: flex-start;
+    justify-content: flex-start;
+}
+
+.buttonWrapper {
+    display: flex;
+    height: 20vh;
+    width: 20vw;
+    place-content: center;
+}
+
+
+/* ################################## CSS for Ripple Effect ########################################## */
+
+.rippleBtn {
+    
+    /* This caused some error, check abt the positioning properly */
+    position: relative;
+    /* This caused some error, check abt the positioning properly */
+  
+
+    /* position css */
+    height: 2.75rem !important;
+    width: 10rem !important;
+    align-self: center;
+
+    /* appearance css */
+    border: 2px solid white;
+    border-radius: 30px;
+    background: #ff1798;
+    font-size: small;
+    font-weight: 100;
+    color: white;
+    font-family: sans-serif;
+
+    /* actions css */
+    outline: none;
+    cursor: pointer;
+    overflow: hidden;
+    transition: 1s;
+}
+
+/* .rippleBtn:hover {
+    background: #ff6fbe;
+} */
+
+.rippleWaves {
+    /* fixing position w.r.t to parent */
+    position: absolute;
+    transform: translate(-50%, -50%);
+
+    /* ripple starts from nothing */
+    width: 0;
+    height: 0;
+    
+    /* making it circular */
+    border-radius: 50%;
+    background-color: white;
+    
+    /* pointer-events -- The element reacts to pointer events, like :hover and click -- setting it to none */
+    pointer-events: none;
+    opacity: .5;
+    animation: ripple 0.5s ease-out;
+}
+
+@keyframes ripple {
+    to {
+        width: 15rem;
+        height: 15rem;
+        opacity: 0;
+    }
+}
+
+/* ################################## CSS for Shape Change Effect ########################################## */
+
+.shapeChngBtn {
+    height: 2.75rem !important;
+    width: 10rem !important;
+    align-self: center;
+    
+}

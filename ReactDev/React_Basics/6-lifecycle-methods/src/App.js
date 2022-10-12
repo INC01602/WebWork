@@ -1,23 +1,21 @@
-import logo from './logo.svg';
 import './App.css';
+import LifecycleCompParent from './components/lifecycleCompParent';
+import ParentErrorBoundary from './components/ParentErrorBoundary';
+import ParentForPure from './components/ParentForPure';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <LifecycleCompParent></LifecycleCompParent>
+      <br />
+      <br />
+      <br />
+      <ParentForPure />
+      <br />
+      <br />
+      <br />
+      <h3>Implementing Error Boundaries</h3>
+      <ParentErrorBoundary/>
     </div>
   );
 }
