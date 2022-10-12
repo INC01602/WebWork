@@ -77,7 +77,7 @@ So, instead of recreating the whole DOM tree again and again, React only updates
 
 - `key="data"` is passed in as a prop in the child while mapping but cannot be accessed by the child from `props`. If we need to access `data`, we need to pass it as a different prop.
 
-- ###Important!!
+- ### Important!!
 
     - We can use index as key - [check code for renderingType]()
     - But it may cause some issue when the list is updated and key for each element is refreshed !!!
