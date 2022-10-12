@@ -3,11 +3,14 @@ import FragmentComp from './fragment';
 
 function ParentTable(props) {
     return (
-        <table>
-            <tbody>
-                <FragmentComp />
-            </tbody>
-        </table>
+        <div>
+            <h3>Fragments</h3>
+            <table>
+                <tbody>
+                    <FragmentComp />
+                </tbody>
+            </table>
+        </div>
     );
 }
 
