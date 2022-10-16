@@ -1,70 +1,69 @@
-# Getting Started with Create React App
+### useEffect() Hook
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- `useEffect()` hook is used to cause side effect onto the **functional components** based on the effects that are being cause in React.
 
-## Available Scripts
+- In class components, we have lifecycle methods like `componentDidMount()`,`componentWillUnmount()`,`componentDidUpdate()` to cause these sideEffects.
 
-In the project directory, you can run:
+#### useEffect replacing ComponentDidMount() and componentDidUpdate()
 
-### `npm start`
+- `useEffect()` is a function in React that is triggered everytime the component is rendered for first and every other time.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- This functionality is handled in class components using the lifecycle methods.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+    ```
+    useEffect(() => {
+        console.log("Rerendering the Functional Component each time");
+    });
+    ```
 
-### `npm test`
+> The aboce code demonstrates the behaviour like the `componentDidMount()` function for the first iteration and `componentDidUpdate()` for teh rest.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- The behaviour of the `useEffect()` hook can be controlled as per the requirements. 
 
-### `npm run build`
+##### useEffect() hooks triggered only when a Single State changes:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Instead of triggering `useEffect()` everytime component re-renders, it can be triggered based on change of a specifics state or set of states.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- to control this, simply pass on an additional argument as **an Array of states that needs to be monitored for triggering.**
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+    ```
+    useEffect(() => {
+        console.log("Rerendering the Functional Component");
+        console.log("count updated from class comp");
+    }, [count]);
+    ```
 
-### `npm run eject`
+> The aboce code demonstrates the behaviour like the `componentDidUpdate(prevProps, prevState)` function with prevProps and prevStates argument provided
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+##### useEffect() hooks triggered only once on load:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- If the `useEffect()` needs to be run only once, just pass the second argument as an empty array.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+    ```
+    useEffect(() => {
+        console.log("Rendering the Functional Component only once!");
+    }, []);
+    ```
 
-## Learn More
+> The aboce code demonstrates the behaviour like the `componentDidMount()` lifecycleMethod.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+##### useEffect() hooks for componentWillUnmount():
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Some cleanup needs to be done for the components like resetting the data from JSONs, cleaning the event listeners, setting exit parameters, etc.
 
-### Code Splitting
+- In class components these operations are performed in `componentWillUnmount()` lifecycle method. But in `useEffect()` hook, a function is returned which is later used by React hooks to do cleanup for the same `useEffect()` hook.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+    ```
+    useEffect(() => {
+        window.addEventListener("mousemove", logMousePosn)
 
-### Analyzing the Bundle Size
+        return () => {
+            window.removeEventListener("mousemove", logMousePosn);
+        }
+    },[]);
+    ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- **while keeping an [] array as dependency for `useEffect()`, make sure all the function calls also have no dependency else -** 
+    - **it will not update the values of the states that are dependent in the function,** 
+    - **OR it will update the states and not re-render the component.**
